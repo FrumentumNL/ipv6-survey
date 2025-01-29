@@ -14,7 +14,7 @@ const knex = Knex(knexfile);
 const runningTests = new Map();
 
 app.use(cors());
-app.use('trust proxy');
+app.enable('trust proxy');
 
 app.get('/client.js', (req, res) => {
     res.type('text/javascript');
