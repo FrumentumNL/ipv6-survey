@@ -14,6 +14,7 @@ const knex = Knex(knexfile);
 const runningTests = new Map();
 
 app.use(cors());
+app.use('trust proxy');
 
 app.get('/client.js', (req, res) => {
     res.type('text/javascript');
@@ -107,6 +108,6 @@ app.post('/test/:id/:type', async (req, res) => {
 });
 
 const httpPort = process.env.HTTP_PORT || 3000;
-app.listen(httpPort, () => {
-    console.log(`Server is running on :${httpPort}`);
+app.listen(httpPort, '127.0.0.1', () => {
+    console.log(`Server is running on 127.0.0.1:${httpPort}`);
 });
