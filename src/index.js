@@ -97,11 +97,11 @@ app.post('/test/:id/:type', async (req, res) => {
     if (isIpv6) {
         existingTest.ip6 = true;
         existingTest.ip6ASN = asn?.autonomousSystemNumber || null;
-        existingTest.ip6Country = country?.country.isoCode || null;
+        existingTest.ip6Country = country?.country?.isoCode || null;
     } else {
         existingTest.ip4 = true;
         existingTest.ip4ASN = asn?.autonomousSystemNumber || null;
-        existingTest.ip4Country = country?.country.isoCode || null;
+        existingTest.ip4Country = country?.country?.isoCode || null;
     }
 
     res.send('ok');
